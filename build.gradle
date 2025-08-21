@@ -160,8 +160,6 @@ jar {
     from "LICENSE.ASSETS"
 }
 
-apply from: "helper.gradle"
-
 allprojects {
     // Allow 400 errors.
     gradle.projectsEvaluated {
