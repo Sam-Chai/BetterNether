@@ -109,7 +109,11 @@ public class BlockStatueRespawner extends BlockBaseNotFull implements BehaviourM
             player.playSound(SoundEvents.TOTEM_USE, 0.7F, 1.0F);
             return InteractionResult.SUCCESS;
         } else {
-            player.displayClientMessage(Component.translatable("message.spawn_help", requiredItem), true);
+            Component arg = Component.empty().append(Component.literal(String.valueOf(requiredItem.getCount()))).append("×").append(requiredItem.getHoverName());
+            player.displayClientMessage(Component.translatable("message.spawn_help", arg), true);
+
+            // cause sponge netty io problem.
+            // player.displayClientMessage(Component.translatable("message.spawn_help", requiredItem), true);
         }
         return InteractionResult.SUCCESS;
     }
